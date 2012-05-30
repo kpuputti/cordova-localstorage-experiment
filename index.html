@@ -17,9 +17,7 @@
       #controls { height: 50%; }
       label { display: block; margin-bottom: 0.5em; }
       #input, #output { width: 100%; height: 20%; }
-      button { padding: 0.5em; width: 49%; }
-      #write { float: left; }
-      #read { float: right; }
+      button { padding: 0.5em; width: 32%; margin: 0; }
       #log { width: 100%; height: 50%; padding: 0.5em; }
     </style>
     <script src="cordova-1.7.0.js"></script>
@@ -31,9 +29,14 @@
         <input type="checkbox" id="require-deviceready">
         require device ready
       </label>
+      <label>
+        <input type="checkbox" id="use-encoding">
+        use base64 encoding
+      </label>
 
       <button id="read">Read</button>
       <button id="write">Write</button>
+      <button id="clear">clear</button>
 
       <p>input:</p>
       <textarea id="input"></textarea>
@@ -42,6 +45,7 @@
 
     </section>
     <textarea id="log"></textarea>
+    <script src="base64.js"></script>
     <script src="store.js"></script>
   </body>
 </html>
