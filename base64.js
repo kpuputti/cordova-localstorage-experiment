@@ -8,8 +8,8 @@
  * Released under the MIT license
  */
 
-if (typeof btoa == 'undefined') {
-    function btoa(str) {
+if (!window.btoa) {
+    window.btoa = function (str) {
         var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
         var encoded = [];
         var c = 0;
@@ -28,11 +28,11 @@ if (typeof btoa == 'undefined') {
             encoded[encoded.length] = chars.charAt(i3);
         }
         return encoded.join('');
-    }
+    };
 }
 
-if (typeof atob == 'undefined') {
-    function atob(str) {
+if (!window.atob) {
+    window.atob = function (str) {
         var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
         var invalid = {
             strlen: (str.length % 4 != 0),
@@ -57,5 +57,5 @@ if (typeof atob == 'undefined') {
             if (b2 >= 0) decoded[decoded.length] = String.fromCharCode(b2);
         }
         return decoded.join('');
-    }
+    };
 }
